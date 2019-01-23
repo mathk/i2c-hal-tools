@@ -1,0 +1,26 @@
+[package]
+authors = ["Mathieu Suen <tryphont@pm.me>"]
+categories = [
+    "embedded",
+    "hal",
+    "i2c",
+    "no-std",
+]
+description = "A platform agniostic driver to interface with teh I2C base MFXSTM32L152 Idd sensor."
+keywords = [
+    "embedded-hal-i2c",
+    "i2c-hal",
+]
+license = "0BSD"
+name = "i2c-hal-tools"
+readme = "README.md"
+repository = "https://github.com/mathk/i2c-hal-tools"
+version = "0.0.1"
+
+[dependencies.cast]
+default-features = false
+version = "0.2.2"
+
+[dependencies.embedded-hal]
+features = ["unproven"]
+version = "0.2.2"
