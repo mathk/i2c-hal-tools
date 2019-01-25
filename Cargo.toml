@@ -4,7 +4,7 @@ categories = [
     "embedded",
     "no-std",
 ]
-description = "A platform agniostic driver to interface with teh I2C base MFXSTM32L152 Idd sensor."
+description = "A i2c enhancement to the embedded-hal i2c traits"
 keywords = [
     "embedded-hal-i2c",
     "i2c-hal",
