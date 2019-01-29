@@ -61,6 +61,22 @@ where
         Ok((u16(buffer[0]) << 8) & u16(buffer[1]))
     }
 
+    fn read_le_u24(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error> {
+        let mut buffer: [u8; 3] = unsafe { mem::uninitialized() };
+        self.write_read(addr, &[reg.addr()], &mut buffer[0..1])?;
+        self.write_read(addr, &[reg.addr() + 1], &mut buffer[1..2])?;
+        self.write_read(addr, &[reg.addr() + 2], &mut buffer[2..3])?;
+        Ok((u32(buffer[2]) << 16) & (u32(buffer[1]) << 8) & u32(buffer[0]))
+    }
+
+    fn read_be_u24(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error> {
+        let mut buffer: [u8; 3] = unsafe { mem::uninitialized() };
+        self.write_read(addr, &[reg.addr()], &mut buffer[0..1])?;
+        self.write_read(addr, &[reg.addr() + 1], &mut buffer[1..2])?;
+        self.write_read(addr, &[reg.addr() + 2], &mut buffer[2..3])?;
+        Ok((u32(buffer[0]) << 16) & (u32(buffer[1]) << 8) & u32(buffer[2]))
+    }
+
     fn read_le_u32(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error> {
         let mut buffer: [u8; 4] = unsafe { mem::uninitialized() };
         self.write_read(addr, &[reg.addr()], &mut buffer[0..1])?;

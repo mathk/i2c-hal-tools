@@ -39,6 +39,8 @@ where
     }
     fn read_le_u16(&mut self, addr: u8, reg: R) -> Result<u16, Self::Error>;
     fn read_be_u16(&mut self, addr: u8, reg: R) -> Result<u16, Self::Error>;
+    fn read_le_u24(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error>;
+    fn read_be_u24(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error>;
     fn read_le_u32(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error>;
     fn read_be_u32(&mut self, addr: u8, reg: R) -> Result<u32, Self::Error>;
 }
